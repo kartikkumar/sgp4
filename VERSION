@@ -1,0 +1,7 @@
+// This file exists for CMake to be able to find the requested version of the SGP4 library.
+// The version definition is based on incremental changes to the SGP4 library.
+// The original code was not shipped with this file. Based on the number of revisions listed in
+// the sgp4_CodeReadme.pdf file, the major version for the original codebase is set to 7. 
+// Subsequent improvements to this library should increment the version numbers given here.
+#define SGP4_VERSION_MAJOR 7
+#define SGP4_VERSION_MINOR 0 
