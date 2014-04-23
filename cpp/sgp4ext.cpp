@@ -151,7 +151,7 @@ double  dot
 *    vec2        - vector number 2
 *
 *  outputs       :
-*    theta       - angle between the two vectors  -pi to pi
+*    theta       - angle between the two vectors  -sgp4_pi to sgp4_pi
 *
 *  locals        :
 *    temp        - temporary real variable
@@ -283,7 +283,7 @@ void newtonnu
              // -------------------- hyperbolic  --------------------
              if ( ecc > 1.0 + small  )
                {
-                 if ((ecc > 1.0 ) && (fabs(nu)+0.00001 < pi-acos(1.0 /ecc)))
+                 if ((ecc > 1.0 ) && (fabs(nu)+0.00001 < sgp4_pi-acos(1.0 /ecc)))
                    {
                      sine= ( sqrt( ecc*ecc-1.0  ) * sin(nu) ) / ( 1.0  + ecc*cos(nu) );
                      e0  = asinh( sine );
@@ -292,7 +292,7 @@ void newtonnu
                 }
                else
                  // ----------------- parabolic ---------------------
-                 if ( fabs(nu) < 168.0*pi/180.0  )
+                 if ( fabs(nu) < 168.0*sgp4_pi/180.0  )
                    {
                      e0= tan( nu*0.5  );
                      m = e0 + (e0*e0*e0)/3.0;
@@ -300,10 +300,10 @@ void newtonnu
 
      if ( ecc < 1.0  )
        {
-         m = fmod( m,2.0 *pi );
+         m = fmod( m,2.0 *sgp4_pi );
          if ( m < 0.0  )
-             m = m + 2.0 *pi;
-         e0 = fmod( e0,2.0 *pi );
+             m = m + 2.0 *sgp4_pi;
+         e0 = fmod( e0,2.0 *sgp4_pi );
        }
    }  // end newtonnu
 
@@ -332,7 +332,7 @@ void newtonnu
 *    p           - semilatus rectum               km
 *    a           - semimajor axis                 km
 *    ecc         - eccentricity
-*    incl        - inclination                    0.0  to pi rad
+*    incl        - inclination                    0.0  to sgp4_pi rad
 *    omega       - longitude of ascending node    0.0  to 2pi rad
 *    argp        - argument of perigee            0.0  to 2pi rad
 *    nu          - true anomaly                   0.0  to 2pi rad
@@ -378,8 +378,8 @@ void rv2coe
        int i;
        char typeorbit[3];
 
-     twopi  = 2.0 * pi;
-     halfpi = 0.5 * pi;
+     twopi  = 2.0 * sgp4_pi;
+     halfpi = 0.5 * sgp4_pi;
      small  = 0.00000001;
      undefined = 999999.1;
      infinite  = 999999.9;
@@ -421,7 +421,7 @@ void rv2coe
          if ( ecc < small )
            {
              // ----------------  circular equatorial ---------------
-             if  ((incl<small) | (fabs(incl-pi)<small))
+             if  ((incl<small) | (fabs(incl-sgp4_pi)<small))
                  strcpy(typeorbit,"ce");
                else
                  // --------------  circular inclined ---------------
@@ -430,7 +430,7 @@ void rv2coe
            else
            {
              // - elliptical, parabolic, hyperbolic equatorial --
-             if  ((incl<small) | (fabs(incl-pi)<small))
+             if  ((incl<small) | (fabs(incl-sgp4_pi)<small))
                  strcpy(typeorbit,"ee");
            }
 

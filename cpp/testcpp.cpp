@@ -73,7 +73,7 @@ int main()
 	char longstr2[130];
 	elsetrec satrec;
 
-        rad = 180.0 / pi;
+        rad = 180.0 / sgp4_pi;
 // ------------------------  implementation   --------------------------
 strcpy(monstr[1], "Jan");
 strcpy(monstr[2], "Feb");
