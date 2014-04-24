@@ -25,7 +25,7 @@ macro(_sgp4_check_version)
                    "but at least version ${SGP4_FIND_VERSION} is required!")
   endif(NOT SGP4_VERSION_OK)
 
-  set(SGP4_LIBRARY "sgp4_s")
+  set(SGP4_LIBRARY "sgp4")
   set(SGP4_INCLUDE_DIR ${SGP4_BASE_PATH}/../)
   set(SGP4_LIBRARYDIR ${SGP4_BASE_PATH}/build/cpp/)
   link_directories(${SGP4_LIBRARYDIR})
