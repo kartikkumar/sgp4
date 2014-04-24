@@ -63,9 +63,11 @@ endif(SGP4_BASE_PATH)
  #    References
  #      FindEigen3.cmake.
  #
- #    This script tries to find the SGP4 library. This module supports requiring a minimum 
- #    version, e.g. you can do version, e.g. you can do find_package(SGP4 3.1.2) to require
- #    version 3.1.2 or newer of SGP4.
+ #    This script tries to find the SGP4 library. Note that this is the original SGP4 library
+ #    released on CelesTrak (http://celestrak.com/publications/AIAA/2006-6753/).
+ #
+ #    This module supports requiring a minimum version, e.g. you can do version, e.g. you can do
+ #    find_package(SGP4 3.1.2) to require version 3.1.2 or newer of SGP4.
  #
  #    Once done, this will define:
  #
